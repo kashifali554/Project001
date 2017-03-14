@@ -1,5 +1,6 @@
 body {
-	background-color: #C9DAF2;
+	background-color: #b8b8b8;
+	font-family: Verdana;
 }
 
 #greetings {
@@ -18,12 +19,29 @@ img {
   margin-right: 20px;
 }
 
-div {
-  text-align: center;
+.product {
+/*	height: 25vw;
+	width: 25vw;*/
+	background: white;
+	margin: 10px;
+/*	border: solid black 2px;
+	align-content: center;*/
 }
 
 p {
+	margin-top: 10px;
+}
+
+/*#saleitems {
+	background-color: white; 
+  	text-align: center;
+  	padding: 10px;
+}*/
+
+/*p {
   background-color: white;
   text-align: left;
   width: 25vw;
+  font-size: 24px;
 }
+*/

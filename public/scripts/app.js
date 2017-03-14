@@ -39,8 +39,7 @@ function renderProduct(products) {
   var html = '';
   products.forEach(function (product) {
     var templateHtml = (
-      `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.title}</p></div>`
-      );
+      `<div class="product" style=display:inline-block><img src=${product.image}><p class="first-line">\$${product.price} ${product.title}</p> <p class="description">${product.description}</p></div>`);
     console.log(templateHtml);
     $('#saleitems').append(templateHtml);
   });
