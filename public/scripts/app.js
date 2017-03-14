@@ -38,53 +38,56 @@ $(document).ready(function() {
 function renderProduct(products) {
   var html = '';
   products.forEach(function (product) {
-    html += "<div><img src=" + product.image + "><h3>" + product.title + "</h3><h3>"+product.price+"</h3></div>";
+    var templateHtml = (
+      `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.title}</p></div>`
+      );
+    console.log(templateHtml);
+    $('#saleitems').append(templateHtml);
   });
-  $('#saleitems').append(html);
 }
 
-    // var productHtml = (`
-     // <!-- one product -->
-     // <div class='row product' data-product-id=${product.title}>
-     // <div class='col-md-10 col-md-offset-1'>
-     // <div class='panel panel-default'>
-     // <div class='panel-body'>
-     // <!-- begin product internal row -->
-     // <div class='row'>
-     // <div class='col-md-3 col-xs-12 thumbnail product-art'>
-     // // <img src='../images/800x800.png' alt='product image'>
-     // </div>
-     // <div class='col-md-9 col-xs-12'>
-     // <ul class='list-group'>
-     // <li class='list-group-item'>
-     // <h4 class='inline-header'>Product title:</h4>
-     // <span class='product-name'>${product.title}</span>
-     // </li>
-     // <li class='list-group-item'>
-     // <h4 class='inline-header'>Product price:</h4>
-     // <span class='artist-name'>${product.price}</span>
-     // </li>
-     // <li class='list-group-item'>
-     // <h4 class='inline-header'>Product description:</h4>
-     // <span class='product-name'>${product.description}</span>
-     // </li>
-     // <li class="list-group-item">
-     // <h4 class="inline-header">Product image</h4>
-     // <span class='song-name'>${product.image}</span>
-     // </li>
-     // </ul>
-     // </div>
-     // </div>
-     // <!-- end of product internal row -->
-     // <div class='panel-footer'>
-     // <button class='btn btn-primary add-song'>Add Song</button>
-     // <button class='btn btn-danger delete-song'>Delete product</button>
-     // </div>
-     // </div>
-     // <div class='panel-footer'>
-     // </div>
-     // </div>
-     // </div>
+//     var productHtml = (`
+//      <!-- one product -->
+//      <div class='row product' data-product-id=${product.title}>
+//      <div class='col-md-10 col-md-offset-1'>
+//      <div class='panel panel-default'>
+//      <div class='panel-body'>
+//      <!-- begin product internal row -->
+//      <div class='row'>
+//      <div class='col-md-3 col-xs-12 thumbnail product-art'>
+//      // <img src='../images/800x800.png' alt='product image'>
+//      </div>
+//      <div class='col-md-9 col-xs-12'>
+//      <ul class='list-group'>
+//      <li class='list-group-item'>
+//      <h4 class='inline-header'>Product title:</h4>
+//      <span class='product-name'>${product.title}</span>
+//      </li>
+//      <li class='list-group-item'>
+//      <h4 class='inline-header'>Product price:</h4>
+//      <span class='artist-name'>${product.price}</span>
+//      </li>
+//      <li class='list-group-item'>
+//      <h4 class='inline-header'>Product description:</h4>
+//      <span class='product-name'>${product.description}</span>
+//      </li>
+//      <li class="list-group-item">
+//      <h4 class="inline-header">Product image</h4>
+//      <span class='song-name'>${product.image}</span>
+//      </li>
+//      </ul>
+//      </div>
+//      </div>
+//      <!-- end of product internal row -->
+//      <div class='panel-footer'>
+//      <button class='btn btn-primary add-song'>Add Song</button>
+//      <button class='btn btn-danger delete-song'>Delete product</button>
+//      </div>
+//      </div>
+//      <div class='panel-footer'>
+//      </div>
+//      </div>
+//      </div>
 //      <!-- end one product -->
 //      `);
 // $('#products').prepend(productHtml);
