@@ -1,5 +1,6 @@
 body {
-	background-color: #C9DAF2;
+	background-color: #b8b8b8;
+	font-family: Verdana;
 }
 
 #greetings {
@@ -7,25 +8,22 @@ body {
   text-align: center;
 }
 
-/*.bg-image {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-}*/
-
 img {
   width: 25vw;
   height: 18vw;
   margin-right: 20px;
 }
 
-div {
-  text-align: center;
+.product {
+
+	background: white;
+	margin: 10px;
+
 }
 
 p {
-  background-color: white;
-  text-align: left;
-  width: 25vw;
-  font-size: 20px;
+	margin-top: 10px;
 }
+
+
+
