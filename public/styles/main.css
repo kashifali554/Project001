@@ -14,15 +14,10 @@ img {
   margin-right: 20px;
 }
 
-.product {
-
-	background: white;
-	margin: 10px;
-
-}
-
 p {
-	margin-top: 10px;
+  text-align: left;
+  background-color: white;
+  width: 25vw;
 }
 
 
