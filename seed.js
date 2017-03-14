@@ -19,6 +19,12 @@ var products = [];
     description: 'HP computer PC',
     image: 'images/hp.jpg'
   });
+  products.push({
+  title: 'Iphone',
+  price: 450,
+  description: 'Iphone and box',
+  image: 'images/Iphone.jpg'
+  });
 
   db.Product.remove({}, function(err, succ){
     if(err){return console.log("REMOVE ERR: " ,err)}

@@ -51,8 +51,69 @@
     <h1>Welcome to Kashman Store</h1>
  	</div>
 
-<div id="saleitems">
+<section id='album-form' class="container">
+      <div class="row">
+      <div class="col-md-10 col-md-offset-1">
 
+        <form class="form-horizontal">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Sale your stuff</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="title">Title</label>
+              <div class="col-md-4">
+              <input id="name" name="name" type="text" placeholder="Add product title" class="form-control input-md" required="">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="imageLink">Image link</label>
+              <div class="col-md-4">
+              <input id="textinput" name="ImageLink" type="text" placeholder="Add image url" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Price">Price</label>
+              <div class="col-md-4">
+              <input id="Price" name="Price" type="text" placeholder="i.e $50" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Description">Description</label>
+              <div class="col-md-4">
+                <textarea class="form-control" id="Description" name="Description"></textarea>
+              </div>
+            </div>
+
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="singlebutton"></label>
+              <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Post</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      </div>
+    </section>
+	
+	<!-- Item appended from database -->
+ 	<div class="container" id="items">
+		<div id="saleitems">
+	</div>
 <!-- <div class="form-group">
   <label class="col-md-4 control-label" for="name">Product Name</label>
   <div class="col-md-4">
