@@ -1,18 +1,16 @@
 var db = require('../models');
 
-//get all products on the page
 function index (req, res) {
   db.Product.find({}, function (err, allProducts) {
     if (err) {
       console.log('All products err: ', err);
     } else {
-      console.log(allProducts);
+      console.log("TOTAL PRODUCT COUNT: " , allProducts.length);
       res.json(allProducts);
     }
   });
 }
 
-//create one album
 function create (req, res) {
   db.Product.create(req.body, function (err, createdProduct) {
     if (err) {

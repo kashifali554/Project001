@@ -5,8 +5,8 @@ $(document).ready(function() {
     method: 'GET',
     url: '/api/products',
     success: function onSuccess(products) {
-      $('#saleitems').append(renderProduct(products));
-      console.log(products)
+      console.log(products);
+      renderProduct(products);
     },
     error: function onError (err) {
       console.log('err: ', err);
@@ -15,32 +15,32 @@ $(document).ready(function() {
 
 });
 
-var products = [];
-  products.push({
-    title: 'Matress',
-    price: 90,
-    description: 'Double high mattress with an electrical pump',
-    image: 'images/hp.jpg'
-  });
-  products.push({
-    title: 'SmartTV',
-    price: 380,
-    description: 'Samsung SmartTV 1080p',
-    image: 'images/mattress.jpg'
-  });
-  products.push({
-    title: 'HP',
-    price: 270,
-    description: 'HP computer PC',
-    image: 'images/samsung.jpg'
-  });
+// var products = [];
+//   products.push({
+//     title: 'Matress',
+//     price: 90,
+//     description: 'Double high mattress with an electrical pump',
+//     image: 'images/hp.jpg'
+//   });
+//   products.push({
+//     title: 'SmartTV',
+//     price: 380,
+//     description: 'Samsung SmartTV 1080p',
+//     image: 'images/mattress.jpg'
+//   });
+//   products.push({
+//     title: 'HP',
+//     price: 270,
+//     description: 'HP computer PC',
+//     image: 'images/samsung.jpg'
+//   });
 
 function renderProduct(products) {
   var html = '';
   products.forEach(function (product) {
-    html += "<div><img src=" + product.image + "><h3>" + product.title + "</h3><h3>"+product.price+"</h3></div>"
+    html += "<div><img src=" + product.image + "><h3>" + product.title + "</h3><h3>"+product.price+"</h3></div>";
   });
-  return html;
+  $('#saleitems').append(html);
 }
 
     // var productHtml = (`

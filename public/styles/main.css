@@ -7,14 +7,14 @@
   text-align: center;
 }
 
-.bg-image {
+/*.bg-image {
   height: 300px;
   background-size: cover;
   background-position: center;
-}
+}*/
 
-/*img {
+img {
   display: inline-block;
   margin: 20px;
-  width: 20vw;
-}*/
+  width: 300px;
+}
