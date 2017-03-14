@@ -2,7 +2,7 @@ var db = require('./models');
 
 var products = [];
   products.push({
-    title: 'Matress',
+    title: 'Mattress',
     price: 90,
     description: 'Double high mattress with an electrical pump',
     image: 'images/mattress.jpg'

@@ -13,33 +13,30 @@ $(document).ready(function() {
     }
   });
 
-});
+  $('.form-group').on('submit', function(ev) {
+    ev.preventDefault();
+    var formData = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/api/products',
+      data: formData,
+      success: function onSuccess(product) {
+        console.log(product)
+        location.reload();
+      },
+      error: function onError (err) {
+        console.log('err: ', err);
+      }
+    });
+  });
 
-// var products = [];
-//   products.push({
-//     title: 'Matress',
-//     price: 90,
-//     description: 'Double high mattress with an electrical pump',
-//     image: 'images/hp.jpg'
-//   });
-//   products.push({
-//     title: 'SmartTV',
-//     price: 380,
-//     description: 'Samsung SmartTV 1080p',
-//     image: 'images/mattress.jpg'
-//   });
-//   products.push({
-//     title: 'HP',
-//     price: 270,
-//     description: 'HP computer PC',
-//     image: 'images/samsung.jpg'
-//   });
+});
 
 function renderProduct(products) {
   var html = '';
   products.forEach(function (product) {
     var templateHtml = (
-      `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.title}</p></div>`
+      `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.description}</p></div>`
       );
     console.log(templateHtml);
     $('#saleitems').append(templateHtml);

@@ -15,6 +15,7 @@ body {
 
 img {
   width: 25vw;
+  height: 18vw;
   margin-right: 20px;
 }
 
@@ -26,4 +27,5 @@ p {
   background-color: white;
   text-align: left;
   width: 25vw;
+  font-size: 20px;
 }
