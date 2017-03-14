@@ -1,3 +1,20 @@
-body {
+/*body {
 	background-color: gray;
+}*/
+
+#greetings {
+  margin-top: 80px;
+  text-align: center;
 }
+
+.bg-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+/*img {
+  display: inline-block;
+  margin: 20px;
+  width: 20vw;
+}*/
