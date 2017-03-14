@@ -29,7 +29,7 @@ app.get('/api/products', controllers.product.index);
 // app.get('/api/products/:id', controllers.event.show);
 //
 // create a product
-// app.post('/api/products', controllers.event.create);
+app.post('/api/products', controllers.product.create);
 //
 // //update one event
 // app.put('/api/products/:id', controllers.event.update);

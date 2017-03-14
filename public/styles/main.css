@@ -8,40 +8,17 @@ body {
   text-align: center;
 }
 
-/*.bg-image {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-}*/
-
 img {
   width: 25vw;
+  height: 18vw;
   margin-right: 20px;
 }
 
-.product {
-/*	height: 25vw;
-	width: 25vw;*/
-	background: white;
-	margin: 10px;
-/*	border: solid black 2px;
-	align-content: center;*/
-}
-
 p {
-	margin-top: 10px;
-}
-
-/*#saleitems {
-	background-color: white; 
-  	text-align: center;
-  	padding: 10px;
-}*/
-
-/*p {
-  background-color: white;
   text-align: left;
+  background-color: white;
   width: 25vw;
-  font-size: 24px;
 }
-*/
+
+
+

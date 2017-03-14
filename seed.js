@@ -2,28 +2,24 @@ var db = require('./models');
 
 var products = [];
   products.push({
-    title: 'Matress',
+    image: 'images/mattress.jpg',
     price: 90,
-    description: 'Double high mattress with an electrical pump',
-    image: 'images/mattress.jpg'
+    description: 'Double high mattress'
   });
   products.push({
-    title: 'SmartTV',
+    image: 'images/samsung.jpg',
     price: 380,
-    description: 'Samsung SmartTV 1080p',
-    image: 'images/samsung.jpg'
+    description: 'Samsung SmartTV 1080p'
   });
   products.push({
-    title: 'HP',
+    image: 'images/hp.jpg',
     price: 270,
-    description: 'HP computer PC',
-    image: 'images/hp.jpg'
+    description: 'HP computer PC'
   });
   products.push({
-  title: 'Iphone',
-  price: 450,
-  description: 'Iphone and box',
-  image: 'images/Iphone.jpg'
+    image: 'images/Iphone.jpg',
+    price: 450,
+    description: 'Iphone and box'
   });
 
   db.Product.remove({}, function(err, succ){
