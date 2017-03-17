@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kashman store</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- Jquery -->
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- coustome JS -->
+  <script src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-nav-demo">
+
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li><a href="#">Sign Up</a></li> -->
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="greetings">
+    <h1>Welcome to Kashman Store</h1>
+    <hr>
+  </div>
+
+    <form class="form-horizontal">
+
+      <div class="row">
+            <!-- text input for the image link -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="imageLink">Image</label>
+              <div class="col-md-4">
+              <input id="image" name="ImageLink" type="text" placeholder="Add image url" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Text input for the price-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Price">Price</label>
+              <div class="col-md-4">
+              <input id="price" name="price" type="text" placeholder="i.e $50" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Textarea for the description-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="description">Description</label>
+              <div class="col-md-4">
+                <textarea class="form-control" id="description" name="description"></textarea>
+              </div>
+            </div>
+
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="singlebutton"></label>
+              <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Post</button>
+              </div>
+            </div>
+
+        </form>
+
+      </div>
+
+  <div class="container" id="items">
+    <div id="saleitems">
+  </div>
+</div>
+
+</body>
+</html>

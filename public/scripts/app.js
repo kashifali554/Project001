@@ -21,7 +21,6 @@ $(document).ready(function() {
         price: $('#price').val(),
         description: $('#description').val()
       };
-      console.log("BUTTON CLICKED: INFORMATION - " , formData);
     $.ajax({
       method: 'POST',
       url: '/api/products',
@@ -38,13 +37,17 @@ $(document).ready(function() {
     });
     location.reload();
   });
-
 });
 
 function renderProduct(product) {
+  if (product.description.length < 30) {
    var templateHtml = (
-     `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.description}</p></div>`);
-   console.log(templateHtml);
+     `<div style=display:inline-block><img id="img" src=${product.image}><p>\$${product.price} ${product.description}</p></div>`);
    $('#saleitems').prepend(templateHtml);
+  } else {
+    var templateHtml = (
+      `<div style=display:inline-block><img src=${product.image}><p>\$${product.price} ${product.description.slice(0, 30) + '...'}</p></div>`);
+    $('#saleitems').prepend(templateHtml);
+  }
 }
 
