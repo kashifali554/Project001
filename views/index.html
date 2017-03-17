@@ -93,11 +93,36 @@
         </form>
 
       </div>
-
+      <!-- Product creation div -->
  	<div class="container" id="items">
-		<div id="saleitems">
-	</div>
-</div>
+	   
+      <!-- THIS IS WHERE ITEMS ARE APPENDED -->
+     <div id="saleitems">
+
+
+
+	   </div>
+  </div>
+
+  <!-- Modal -->
+          <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Product Description</h4>
+                </div>
+                <div class="modal-body">
+                  <span id="show-one"></span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal" id="close-button" >Close</button>
+                  <button type="button" class="delete-product btn btn-danger">Delete</button>
+                  <!-- <button type="button" class="btn btn-primary">Edit</button> -->
+                </div>
+               </div>
+            </div>
+        </div>
 
 </body>
 </html>

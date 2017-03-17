@@ -24,18 +24,19 @@ app.get('/api', controllers.api.index);
 
 //get all products
 app.get('/api/products', controllers.product.index);
-//
-// get one product
-// app.get('/api/products/:id', controllers.event.show);
-//
+
 // create a product
 app.post('/api/products', controllers.product.create);
-//
-// //update one event
+
+// //delete one product
+app.delete('/api/products/:id', controllers.product.destroy);
+
+// get one product
+app.get('/api/products/:id', controllers.product.show);
+
+
+// //update one product
 // app.put('/api/products/:id', controllers.event.update);
-//
-// //delete one event
-// app.delete('/api/products/:id', controllers.event.destroy);
 
 ////////////////////
 //  SERVER LISTENER
