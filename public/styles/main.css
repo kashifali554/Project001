@@ -1,5 +1,5 @@
 body {
-	background-color: #b8b8b8;
+	background-color: #ECE6FF;
 	font-family: Verdana;
 }
 
@@ -18,6 +18,9 @@ p {
   text-align: left;
   background-color: white;
   width: 25vw;
+  border: 1px solid lightgrey;
+  font-size: 15px;
+  font-family: 'Harmattan', sans-serif;
 }
 
 

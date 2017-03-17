@@ -4,24 +4,32 @@ var mongoose = require ('mongoose'),
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema ({
-  email: String,
+  username: String,
   passwordDigest: String
 });
 
 // create a new user with secure (hashed) password
-UserSchema.statics.createSecure = function (email, password, callback) {
+UserSchema.statics.createSecure = function (username, password, callback) {
   var UserModel = this;
-  //hash password user enters at signup
-  bcrypt.genSalt(function (err, salt) {
-    console.log('salt: ', salt);  //changes every time
-    bcrypt.hash(password, salt, function (err, hash) {
-      //create the new user, saved to db with hashed password
-      console.log(hash);
-      UserModel.create({
-        email: email,
-        passwordDigest: hash
-        }, callback);
-    });
+
+  UserModel.findOne({username: username}, function(err, existingUser){
+    if(existingUser){
+      callback('Username already exists', null);
+    } else {
+
+    //hash password user enters at signup
+      bcrypt.genSalt(function (err, salt) {
+        console.log('salt: ', salt);  //changes every time
+        bcrypt.hash(password, salt, function (err, hash) {
+          //create the new user, saved to db with hashed password
+          console.log(hash);
+          UserModel.create({
+            username: username,
+            passwordDigest: hash
+            }, callback);
+        });
+      });
+    }
   });
 };
 
@@ -32,16 +40,14 @@ UserSchema.methods.checkPassword = function (password) {
 };
 
 //authenticate user (when user logs in)
-UserSchema.statics.authenticate = function (email, password, callback) {
-  //find user by email entered at log in
+UserSchema.statics.authenticate = function (username, password, callback) {
+  //find user by username entered at log in
   //this refers to the User
-  this.findOne({email: email}, function (err, foundUser) {
-      console.log("SUCCESS FOUNDUSER: ", foundUser);
+  this.findOne({username: username}, function (err, foundUser) {
     if (!foundUser) {
       console.log('Invalid username or password');
       callback('Invalid username or password', null);
-    }
-    if (foundUser.checkPassword(password)) {
+    } else if (foundUser.checkPassword(password)) {
       callback(null, foundUser);
     } else {
       console.log('Invalid username or password');

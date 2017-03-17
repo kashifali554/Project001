@@ -1,0 +1,42 @@
+body {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+}
+
+#container{
+  text-align: center;
+}
+
+button {
+  margin-top: 300px;
+  border-radius: 50px;
+  background-color: #1C31A3;
+  color: red;
+  font-size: 30px;
+  width: 150px;
+}
+
+a {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 100px;
+  color: #FF3F25;
+  font-size: 60px;
+  font-family: 'Baloo Bhaina', cursive;
+}
+
+button:focus {
+  outline: 0;
+}
+
