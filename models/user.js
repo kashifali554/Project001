@@ -2,10 +2,13 @@ var mongoose = require ('mongoose'),
     bcrypt = require ('bcrypt');
 
 var Schema = mongoose.Schema;
+var ProductSchema = require('./product');
 
 var UserSchema = new Schema ({
   username: String,
-  passwordDigest: String
+  passwordDigest: String,
+  // TODO: Add Products to User:
+  // products: [ProductSchema]
 });
 
 // create a new user with secure (hashed) password
@@ -25,7 +28,7 @@ UserSchema.statics.createSecure = function (username, password, callback) {
           console.log(hash);
           UserModel.create({
             username: username,
-            passwordDigest: hash
+            passwordDigest: hash,
             }, callback);
         });
       });

@@ -3,6 +3,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose');
 
+// TODO: should match with convention and be grouped with the above variable declarations
 var session = require('express-session');
 
 // middleware
@@ -18,15 +19,16 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan
 }));
 
-// adds a currentUser method to the request (req) that can find the user currently logged in based on the request's `session.userId`
+
+// adds a currentUser method to the request (req) that can find the User currently logged in based on the request's `session.UserId`
 app.use('/', function (req, res, next) {
   req.currentUser = function (callback) {
-    user.findOne({_id: req.session.userId}, function (err, user) {
-      if (!user) {
+    User.findOne({_id: req.session.UserId}, function (err, User) {
+      if (!User) {
         callback("No User Found", null)
       } else {
-        req.user = user;
-        callback(null, user);
+        req.User = User;
+        callback(null, User);
       }
     });
   };
@@ -34,13 +36,14 @@ app.use('/', function (req, res, next) {
 });
 
 var controllers = require('./controllers');
+
+// remove all console logs from production
 console.log(controllers);
 
+// initial db require
 var db = require('./models');
+var User = db.User;
 
-var User = require('./models/user');
-
-var user = db.User;
 
 ////////////////////
 //  ROUTES
@@ -55,31 +58,30 @@ app.get('/signup', function (req, res) {
   res.render('signup', {message: ""});
 });
 
-//create user route - creates a new user with a secure password in DB
-app.post('/users', function (req, res) {
-  user.createSecure(req.body.username, req.body.password, function (err, newUser) {
+//create User route - creates a new User with a secure password in DB
+app.post('/Users', function (req, res) {
+  User.createSecure(req.body.Username, req.body.password, function (err, newUser) {
     if(err){
-      // user already exists, redirect them back to signup
-      res.render('signup', {message: 'Please choose another username'});
-    }
-    else {
-      // successfully created a new user, send them to home
-      req.session.userId = newUser._id;
+      // User already exists, redirect them back to signup
+      res.render('signup', {message: 'Please choose another Username'});
+    } else {
+      // successfully created a new User, send them to home
+      req.session.UserId = newUser._id;
       res.redirect('/profile');
     }
   });
 });
 
-//authenticate the user
+//authenticate the User
 app.post('/sessions', function (req, res) {
-  user.authenticate(req.body.username, req.body.password, function (err, user) {
-    // if user not found OR password is incorrect
+  User.authenticate(req.body.Username, req.body.password, function (err, User) {
+    // if User not found OR password is incorrect
     if(err) {
       res.render('login', {message: 'Incorrect Username or Password'});
     }
-    // else we know user and password is correct
-    else if (user !== null) {
-      req.session.userId = user._id;
+    // else we know User and password is correct
+    else if (User !== null) {
+      req.session.UserId = User._id;
       res.redirect('/profile');
     }
   });
@@ -90,38 +92,46 @@ app.get('/home', function (req, res) {
 });
 
 app.get('/logout', function (req, res) {
-  //remove the session user id
-  req.session.userId = null;
-  req.user = null;
+  //remove the session User id
+  req.session.UserId = null;
+  req.User = null;
   res.redirect('/');
 
 });
-//show user profile page
+//show User profile page
 app.get('/profile', function (req, res) {
-  user.findOne({_id: req.session.userId}, function (err, currentUser) {
-    console.log("Sending user: ", currentUser);
-    res.render('profile.ejs', {user: currentUser});
+  User.findOne({_id: req.session.UserId}, function (err, currentUser) {
+    // handle err
+
+    // remove all console logs from production
+    console.log("Sending User: ", currentUser);
+
+    res.render('profile.ejs', {User: currentUser});
   });
 });
 
 // root route
-app.get('/', function (req, res) { res.sendFile('./views/landpage.html' , { root : __dirname}); });
+app.get('/', function (req, res) {
+  res.sendFile('./views/landpage.html' , { root : __dirname});
+});
 
 app.get('/api', controllers.api.index);
 
 //get all products
 app.get('/api/products', controllers.product.index);
-// get one product
-// app.get('/api/products/:id', controllers.event.show);
-//
+
 // create a product
 app.post('/api/products', controllers.product.create);
+
+// get one product
+app.get('/api/products/:id', controllers.product.show);
 //
-// //update one event
-// app.put('/api/products/:id', controllers.event.update);
-//
-// //delete one event
-// app.delete('/api/products/:id', controllers.event.destroy);
+
+//update one product
+app.put('/api/products/:id', controllers.product.update);
+
+//delete one product
+app.delete('/api/products/:id', controllers.product.destroy);
 
 ////////////////////
 //  SERVER LISTENER
