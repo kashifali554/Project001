@@ -14,6 +14,10 @@ img {
   margin-right: 20px;
 }
 
+#saleitems {
+  display: flex;
+}
+
 p {
   text-align: left;
   background-color: white;

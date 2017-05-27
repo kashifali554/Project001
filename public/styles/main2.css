@@ -13,10 +13,6 @@ body {
   margin-top: 15vw;
 }
 
-#saleitems {
-  display: flex;
-}
-
 button {
   margin-top: 300px;
   border-radius: 50px;
