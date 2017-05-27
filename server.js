@@ -1,10 +1,8 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  mongoose = require('mongoose');
-
-// TODO: should match with convention and be grouped with the above variable declarations
-var session = require('express-session');
+  mongoose = require('mongoose'),
+  session = require('express-session');
 
 // middleware
 app.use(express.static('public'));
@@ -37,10 +35,6 @@ app.use('/', function (req, res, next) {
 
 var controllers = require('./controllers');
 
-// remove all console logs from production
-console.log(controllers);
-
-// initial db require
 var db = require('./models');
 var User = db.User;
 
@@ -101,16 +95,10 @@ app.get('/logout', function (req, res) {
 //show User profile page
 app.get('/profile', function (req, res) {
   User.findOne({_id: req.session.UserId}, function (err, currentUser) {
-    // handle err
-
-    // remove all console logs from production
-    console.log("Sending User: ", currentUser);
-
     res.render('profile.ejs', {User: currentUser});
   });
 });
 
-// root route
 app.get('/', function (req, res) {
   res.sendFile('./views/landpage.html' , { root : __dirname});
 });
@@ -125,9 +113,8 @@ app.post('/api/products', controllers.product.create);
 
 // get one product
 app.get('/api/products/:id', controllers.product.show);
-//
 
-//update one product
+//update product
 app.put('/api/products/:id', controllers.product.update);
 
 //delete one product

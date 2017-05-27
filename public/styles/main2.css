@@ -9,6 +9,10 @@ body {
   text-align: center;
 }
 
+#welcome {
+  margin-top: 15vw;
+}
+
 button {
   margin-top: 300px;
   border-radius: 50px;
@@ -39,4 +43,3 @@ h2 {
 button:focus {
   outline: 0;
 }
-
