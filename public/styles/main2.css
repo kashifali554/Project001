@@ -16,10 +16,10 @@ body, html {
 }
 
 button {
-  margin-top: 250px;
+  margin-top: 320px;
   border-radius: 50px;
   background-color: #1C31A3;
-  font-size: 30px;
+  font-size: 20px !important;
   width: 150px;
 }
 
