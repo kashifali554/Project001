@@ -2,7 +2,7 @@
 
 ### An e-commerce app for users to post items for sale
 
-<img src="http://imgur.com/a/wczKX" width="80%">
+![alt text](http://imgur.com/a/wczKX)
 
 ## User Stories
 
@@ -30,4 +30,4 @@
 
 ## Links
 
-<https://kashman-store.herokuapp.com/profile>
+<https://kashman-store.herokuapp.com/>
